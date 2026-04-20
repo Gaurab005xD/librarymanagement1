@@ -1,0 +1,107 @@
+# Library Management System (Java + MariaDB)
+
+This project is a simple library management system built using Java and MariaDB. It demonstrates core software development concepts such as object-oriented design, the DAO pattern, and database integration using JDBC. The application includes a graphical user interface built with Swing.
+
+## Features
+
+* Add new books
+* View all books
+* Update existing book records
+* Delete books from the database
+* Desktop GUI using Java Swing
+* Persistent storage using MariaDB
+
+## Technologies Used
+
+* Java (JDK 11 or 17)
+* Java Swing
+* MariaDB
+* JDBC
+* Eclipse IDE
+
+## Project Structure
+
+```
+librarymgmtsystem/
+│
+├── Book.java                  # Model class
+├── BookDAO.java               # DAO interface
+├── BookDAOImpl.java           # DAO implementation
+├── BookNotFoundException.java # Custom exception
+├── DatabaseConnection.java    # Database connection
+├── LibraryGUI.java            # GUI implementation
+├── MainApp.java               # Application entry point
+```
+
+## Database Setup
+
+Create the database:
+
+```sql
+CREATE DATABASE library;
+```
+
+Create the table:
+
+```sql
+USE library;
+
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(100),
+    available BOOLEAN DEFAULT TRUE
+);
+```
+
+## Configuration
+
+Update the database connection settings in `DatabaseConnection.java` if needed:
+
+```java
+private static final String URL = "jdbc:mariadb://localhost:3309/library";
+private static final String USER = "root";
+private static final String PASSWORD = "";
+```
+
+Make sure your MariaDB server is running and the port matches your configuration.
+
+## How to Run
+
+1. Clone the repository:
+
+```
+git clone https://github.com/your-username/library-management-system.git
+```
+
+2. Open the project in your IDE (e.g., Eclipse)
+
+3. Add the MariaDB JDBC driver (`mariadb-java-client.jar`) to the project build path
+
+4. Run `MainApp.java`
+
+## Concepts Demonstrated
+
+* Object-oriented programming (encapsulation and abstraction)
+* DAO design pattern
+* Exception handling with custom exceptions
+* JDBC for database operations
+* Basic GUI development using Swing
+
+## Future Improvements
+
+* Search functionality
+* Borrow and return system
+* Input validation improvements
+* Migration to JavaFX for a more modern interface
+* User authentication
+
+## Author
+
+Gaurab Sapkota
+Dakari Sow
+Ruien Wu
+
+## License
+
+This project is intended for educational use.
